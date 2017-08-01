@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<temperatureCelsiusToFahrenheitRequestMessage xmlns="saibot.airport/services/utility/conversion">
+   <temperature>0</temperature>
+</temperatureCelsiusToFahrenheitRequestMessage>

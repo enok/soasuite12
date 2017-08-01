@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dvm name="UnitTest" xmlns="http://xmlns.oracle.com/dvm">
+  <description>This file contains mappings of URLs used for DVMs.
+  The serverURL column contains the serverURL to be used for DVM references.
+  The testURL is a corresponding URL for unit testing with the XSLT editor test tool, this may be a file URL or oramds URL and must be absolute.</description>
+  <columns>
+    <column name="serverURL"/>
+    <column name="testURL"/>
+  </columns>
+</dvm>
