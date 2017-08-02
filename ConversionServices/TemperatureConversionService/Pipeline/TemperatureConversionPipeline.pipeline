@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">
     <con:coreEntry>
         <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
             <con:wsdl ref="TemperatureConversionService/WSDLs/TemperatureConversionService"/>
@@ -15,8 +15,20 @@
     <con:router>
         <con:pipeline type="request" name="request-7f000001.N3fe37bd4.0.15d9f594151.N8000">
             <con:stage id="_StageId-7f000001.N3fe37bd4.0.15d9f594151.N7ffe" name="Stage1">
-                <con:context/>
-                <con:actions/>
+                <con:context>
+                    <con1:userNsDecl prefix="con" namespace="saibot.airport/services/utility/conversion"/>
+                </con:context>
+                <con:actions>
+                    <con2:replace varName="body" contents-only="true">
+                        <con1:id>_ActionId-N3f57fe6c.7e00af9.0.15da00b9d24.N7ffe</con1:id>
+                        <con2:expr>
+                            <con1:xsltTransform>
+                                <con1:resource ref="TemperatureConversionService/Transformations/temperatureCelsiusToFahrenheitRequestToResponse"/>
+                                <con1:input>$body/con:temperatureCelsiusToFahrenheitRequestMessage</con1:input>
+                            </con1:xsltTransform>
+                        </con2:expr>
+                    </con2:replace>
+                </con:actions>
             </con:stage>
         </con:pipeline>
         <con:pipeline type="response" name="response-7f000001.N3fe37bd4.0.15d9f594151.N7fff">
