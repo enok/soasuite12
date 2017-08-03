@@ -27,6 +27,7 @@
       <string v="oracle.jdeveloper.model.PathsConfiguration/ResourceBundlesContentSet"/>
    </list>
    <list n="listOfChildren">
+      <hash><url n="URL" path="LocalLengthDistanceUnitConvertorService.jpr"/></hash>
       <hash><url n="URL" path="TemperatureConversionService/TemperatureConversionService.jpr"/></hash>
    </list>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
@@ -46,6 +47,6 @@
       </hash>
    </hash>
    <hash n="oracle.sb.tooling.ide.core.internal.application.SbApplication">
-      <value n="configContextSessionName" v="OSB-IDE_build_1501721341539"/>
+      <value n="configContextSessionName" v="OSB-IDE_build_1501799401861"/>
    </hash>
 </jws:workspace>

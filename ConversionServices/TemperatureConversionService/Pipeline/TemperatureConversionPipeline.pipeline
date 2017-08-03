@@ -63,6 +63,9 @@
                     </con3:alert>
                     <con4:report>
                         <con1:id>_ActionId-N3f57fe6c.7e00af9.0.15da00b9d24.N7ff5</con1:id>
+                        <con4:expr>
+                            <con1:xqueryText>$body/con:temperatureCelsiusToFahrenheitRequestMessage</con1:xqueryText>
+                        </con4:expr>
                         <con4:labels>
                             <con4:key>celsiusTemperature</con4:key>
                             <con4:varName>body</con4:varName>
