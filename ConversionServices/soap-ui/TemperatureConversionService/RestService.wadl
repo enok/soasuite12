@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="saibot.airport/services/utility/conversion" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="RestService">RestService</doc>
+   <grammars>
+      <xsd:schema elementFormDefault="qualified" xmlns:conversion="saibot.airport/services/utility/conversion" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+            <xsd:import namespace="saibot.airport/services/utility/conversion" schemaLocation="http://localhost:7001/sbresource?PROXY%2FTemperatureConversionService%2FProxy%2FRestService%3ASCHEMA%2FTemperatureConversionService%2FSchemas%2FConversionService"/>
+        </xsd:schema>
+   </grammars>
+   <resources base="http://10.89.15.235:7001/TemperatureConversionService/RestService">
+      <resource path="/Temperature">
+         <method name="GET">
+            <request soa:paramElement="pns:temperatureCelsiusToFahrenheitRequestMessage" xmlns:pns="saibot.airport/services/utility/conversion">
+               <param name="temperature" style="query" type="xsd:float"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:temperatureCelsiusToFahrenheitResponseMessage" xmlns:cns="saibot.airport/services/utility/conversion"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>
