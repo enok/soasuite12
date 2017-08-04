@@ -50,8 +50,10 @@
                 </con:actions>
             </con:stage>
         </con:pipeline>
+        <con:pipeline type="request" name="request-a590feb.1fd1006.0.15dad63681e.N7fa9"/>
+        <con:pipeline type="response" name="response-a590feb.1fd1006.0.15dad63681e.N7fa8"/>
         <con:flow>
-            <con:branch-node type="operation" id="_FlowId-a590feb.1fd1006.0.15dad63681e.N8000" name="BranchNode1">
+            <con:branch-node type="operation" id="_FlowId-a590feb.1fd1006.0.15dad63681e.N8000" name="Conversion Services Branches">
                 <con:context/>
                 <con:branch-table>
                     <con:branch name="getDistanceFeetToMeter">
@@ -69,6 +71,28 @@
                                         <con1:id>_ActionId-a590feb.1fd1006.0.15dad63681e.N7ff9</con1:id>
                                         <con3:service ref="TemperatureConversionService/Business Service/LengthDistanceUnitConvertorService" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
                                         <con3:operation>ChangeLengthUnit</con3:operation>
+                                        <con3:outboundTransform/>
+                                        <con3:responseTransform/>
+                                    </con3:route>
+                                </con:actions>
+                            </con:route-node>
+                        </con:flow>
+                    </con:branch>
+                    <con:branch name="getTemperatureCelsiusToFahrenheit">
+                        <con:operator>equals</con:operator>
+                        <con:value/>
+                        <con:flow>
+                            <con:pipeline-node name="VET 2">
+                                <con:request>request-a590feb.1fd1006.0.15dad63681e.N7fa9</con:request>
+                                <con:response>response-a590feb.1fd1006.0.15dad63681e.N7fa8</con:response>
+                            </con:pipeline-node>
+                            <con:route-node name="RO 2">
+                                <con:context/>
+                                <con:actions>
+                                    <con3:route>
+                                        <con1:id>_ActionId-a590feb.1fd1006.0.15dad63681e.N7fa3</con1:id>
+                                        <con3:service ref="TemperatureConversionService/Pipeline/TemperatureConversionPipeline" xsi:type="con:PipelineRef"/>
+                                        <con3:operation>getTemperatureCelsiusToFahrenheit</con3:operation>
                                         <con3:outboundTransform/>
                                         <con3:responseTransform/>
                                     </con3:route>
