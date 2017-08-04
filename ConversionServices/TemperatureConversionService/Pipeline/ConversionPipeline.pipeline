@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con3="http://www.bea.com/wli/sb/stages/routing/config">
+    <con:coreEntry>
+        <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
+            <con:wsdl ref="TemperatureConversionService/WSDLs/ConversionService"/>
+            <con:binding>
+                <con:name>ConversionServicePortTypeSOAP11Binding</con:name>
+                <con:namespace>saibot.airport/services/utility/conversion</con:namespace>
+            </con:binding>
+        </con:binding>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router>
+        <con:pipeline type="request" name="request-a590feb.1fd1006.0.15dad63681e.N7fff">
+            <con:stage id="_StageId-a590feb.1fd1006.0.15dad63681e.N7ffd" name="Stage1">
+                <con:context>
+                    <con1:userNsDecl prefix="con" namespace="saibot.airport/services/utility/conversion"/>
+                </con:context>
+                <con:actions>
+                    <con2:replace varName="body" contents-only="true">
+                        <con1:id>_ActionId-a590feb.1fd1006.0.15dad63681e.N7ff6</con1:id>
+                        <con2:expr>
+                            <con1:xsltTransform>
+                                <con1:resource ref="TemperatureConversionService/Transformations/distanceFeetToMeterRequestToChangeLengthUnit"/>
+                                <con1:input>$body/con:distanceFeetToMeterRequestMessage</con1:input>
+                            </con1:xsltTransform>
+                        </con2:expr>
+                    </con2:replace>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-a590feb.1fd1006.0.15dad63681e.N7ffe">
+            <con:stage id="_StageId-a590feb.1fd1006.0.15dad63681e.N7ffc" name="Stage1">
+                <con:context>
+                    <con1:userNsDecl prefix="con" namespace="saibot.airport/services/utility/conversion"/>
+                    <con1:userNsDecl prefix="ns0" namespace="http://www.webserviceX.NET/"/>
+                </con:context>
+                <con:actions>
+                    <con2:replace varName="body" contents-only="true">
+                        <con1:id>_ActionId-a590feb.1fd1006.0.15dad63681e.N7ff3</con1:id>
+                        <con2:expr>
+                            <con1:xsltTransform>
+                                <con1:resource ref="TemperatureConversionService/Transformations/changeLengthUnitResponseTodistanceFeetToMeterResponse"/>
+                                <con1:input>$body/./.</con1:input>
+                            </con1:xsltTransform>
+                        </con2:expr>
+                    </con2:replace>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:branch-node type="operation" id="_FlowId-a590feb.1fd1006.0.15dad63681e.N8000" name="BranchNode1">
+                <con:context/>
+                <con:branch-table>
+                    <con:branch name="getDistanceFeetToMeter">
+                        <con:operator>equals</con:operator>
+                        <con:value/>
+                        <con:flow>
+                            <con:pipeline-node name="VET">
+                                <con:request>request-a590feb.1fd1006.0.15dad63681e.N7fff</con:request>
+                                <con:response>response-a590feb.1fd1006.0.15dad63681e.N7ffe</con:response>
+                            </con:pipeline-node>
+                            <con:route-node name="RO">
+                                <con:context/>
+                                <con:actions>
+                                    <con3:route>
+                                        <con1:id>_ActionId-a590feb.1fd1006.0.15dad63681e.N7ff9</con1:id>
+                                        <con3:service ref="TemperatureConversionService/Business Service/LengthDistanceUnitConvertorService" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                                        <con3:operation>ChangeLengthUnit</con3:operation>
+                                        <con3:outboundTransform/>
+                                        <con3:responseTransform/>
+                                    </con3:route>
+                                </con:actions>
+                            </con:route-node>
+                        </con:flow>
+                    </con:branch>
+                    <con:default-branch>
+                        <con:flow/>
+                    </con:default-branch>
+                </con:branch-table>
+            </con:branch-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>
