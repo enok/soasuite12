@@ -1,0 +1,6 @@
+SaibotCommonsDS
+jdbc/SaibotCommonDS
+jdbc:oracle:thin:@//localhost:1521/orclpdb
+oracle.jdbc.OracleDriver
+user=sys as sysdba
+oracle

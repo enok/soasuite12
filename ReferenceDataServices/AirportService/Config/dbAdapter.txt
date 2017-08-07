@@ -1,0 +1,2 @@
+Name			eis/DB/SaibotCommonDB
+DataSourceName	jdbc/SaibotCommonDS
