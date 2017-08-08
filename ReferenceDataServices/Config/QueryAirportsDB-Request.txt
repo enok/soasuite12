@@ -1,0 +1,5 @@
+<quer:QueryAirportsDBSelect_pIATACode_pCountryCode_pAirportNameInputParameters xmlns:quer="http://xmlns.oracle.com/pcbpel/adapter/db/top/QueryAirportsDB">
+    <quer:pIATACode>AMS</quer:pIATACode>
+    <quer:pCountryCode>NL</quer:pCountryCode>
+    <quer:pAirportName>Schiphol Airport</quer:pAirportName>
+</quer:QueryAirportsDBSelect_pIATACode_pCountryCode_pAirportNameInputParameters>
