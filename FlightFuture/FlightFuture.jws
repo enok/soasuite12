@@ -20,25 +20,24 @@
       <value n="oracle.mds.internal.dt.ide.migrator.MDSConfigMigratorHelper" v="11.1.1.0.5313"/>
    </hash>
    <list n="contentSets">
+      <string v="oracle.jdeveloper.model.PathsConfiguration/ApplicationBuildToolContentSet"/>
       <string v="oracle.mds.internal.dt.ide.appresources.MDSAppResourceCSProvider/MDSAppContentSet"/>
       <string v="oracle.jdeveloper.model.PathsConfiguration/ADFContentSet"/>
       <string v="oracle.jdeveloper.model.PathsConfiguration/ApplicationSrcContentSet"/>
-      <string v="oracle.jdeveloper.model.PathsConfiguration/ApplicationBuildToolContentSet"/>
       <string v="oracle.jdeveloper.model.PathsConfiguration/ResourceBundlesContentSet"/>
    </list>
    <list n="listOfChildren">
-      <hash><url n="URL" path="AirportService/AirportService.jpr"/></hash>
-      <hash><url n="URL" path="CountryService/CountryService.jpr"/></hash>
+      <hash><url n="URL" path="SlotService/SlotService.jpr"/></hash>
    </list>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="ReferenceDataServices">
+         <hash n="FlightFuture">
             <value n="profileClass" v="SbAppDeployProfile"/>
-            <value n="profileName" v="ReferenceDataServices"/>
+            <value n="profileName" v="FlightFuture"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="ReferenceDataServices"/>
+         <string v="FlightFuture"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.maven.compiler.MavenConfiguration">
@@ -47,6 +46,6 @@
       </hash>
    </hash>
    <hash n="oracle.sb.tooling.ide.core.internal.application.SbApplication">
-      <value n="configContextSessionName" v="OSB-IDE_build_1502282193676"/>
+      <value n="configContextSessionName" v="OSB-IDE_build_1502306785232"/>
    </hash>
 </jws:workspace>
