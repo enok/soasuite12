@@ -55,6 +55,9 @@
             <tns:CheckinCounter>
                <xsl:value-of select="/ns0:reportFlightStatusUpdateRequestMessage/ns0:flightStatusEvent/ns0:FlightStatus/flight:CheckinCounter"/>
             </tns:CheckinCounter>
+            <tns:BagageLocation>
+               <xsl:value-of select="/ns0:reportFlightStatusUpdateRequestMessage/ns0:flightStatusEvent/ns0:FlightStatus/flight:BagageLocation"/>
+            </tns:BagageLocation>
          </tns:FlightEventLogEntry>
       </tns:FlightEventLog>
    </xsl:template>
