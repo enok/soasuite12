@@ -68,6 +68,12 @@
                             <con1:xqueryText>$body/ref:findCountriesRequestMessage</con1:xqueryText>
                         </con2:expr>
                     </con2:assign>
+                    <con2:assign varName="findCountriesRequest">
+                        <con1:id>_ActionId-7f000001.47911f84.0.15dd25e2c6d.N7ffe</con1:id>
+                        <con2:expr>
+                            <con1:xqueryText>$body/ref:findCountriesRequestMessage</con1:xqueryText>
+                        </con2:expr>
+                    </con2:assign>
                     <con2:wsCallout>
                         <con1:id>_ActionId-7f000001.N16355365.0.15dccf8f68d.N7fcd</con1:id>
                         <con2:service ref="CountryService/Business Service/OurAirportsCountriesBS" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
@@ -97,6 +103,24 @@
                         <con2:schemaElement xmlns:nxsd="/reference/nxsd_OurAirportsCountries">nxsd:Countries</con2:schemaElement>
                         <con2:replace-body-content/>
                     </con2:nxsdTranslation>
+                    <con2:replace varName="body" contents-only="true">
+                        <con1:id>_ActionId-7f000001.47911f84.0.15dd25e2c6d.N7ffb</con1:id>
+                        <con2:expr>
+                            <con1:xsltTransform>
+                                <con1:resource ref="CountryService/Transformations/nxsdOurAirportsCountriesToFindCountriesResponse"/>
+                                <con1:input>$body/*[1]</con1:input>
+                                <con1:param name="continent">
+                                    <con1:path>$findCountriesRequest/*:continent/text()</con1:path>
+                                </con1:param>
+                                <con1:param name="countryName">
+                                    <con1:path>$findCountriesRequest/*:name/text()</con1:path>
+                                </con1:param>
+                                <con1:param name="countryCode">
+                                    <con1:path>$findCountriesRequest/*:code/text()</con1:path>
+                                </con1:param>
+                            </con1:xsltTransform>
+                        </con2:expr>
+                    </con2:replace>
                 </con:actions>
             </con:stage>
         </con:pipeline>
