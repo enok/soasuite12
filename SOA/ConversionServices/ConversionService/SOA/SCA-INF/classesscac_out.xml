@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Faults>
+   <Fault>
+      <severity>warning</severity>
+      <loc/>
+      <line/>
+      <col/>
+      <file>Mediators/ConversionMediator.mplan</file>
+      <name>Mediators/ConversionMediator.mplan</name>
+      <fix/>
+      <msg>A Operação\Evento "getTemperatureCelsiusToFahrenheit" não contém ocorrência. Nenhum evento de operação será executado\processado respectivamente.</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc/>
+      <line/>
+      <col/>
+      <file>Mediators/ConversionMediator.mplan</file>
+      <name>Mediators/ConversionMediator.mplan</name>
+      <fix/>
+      <msg>A Operação\Evento "getDistanceFeetToMeter" não contém ocorrência. Nenhum evento de operação será executado\processado respectivamente.</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc/>
+      <line/>
+      <col/>
+      <file>Mediators/ConversionMediator.mplan</file>
+      <name>Mediators/ConversionMediator.mplan</name>
+      <fix/>
+      <msg>A Operação\Evento "getDistanceMileToMeter" não contém ocorrência. Nenhum evento de operação será executado\processado respectivamente.</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc/>
+      <line/>
+      <col/>
+      <file>Mediators/ConversionMediator.mplan</file>
+      <name>Mediators/ConversionMediator.mplan</name>
+      <fix/>
+      <msg>A Operação\Evento "getWeightLbToKilogram" não contém ocorrência. Nenhum evento de operação será executado\processado respectivamente.</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc/>
+      <line/>
+      <col/>
+      <file>Mediators/ConversionMediator.mplan</file>
+      <name>Mediators/ConversionMediator.mplan</name>
+      <fix/>
+      <msg>A Operação\Evento "getSpeedKnotToKMph" não contém ocorrência. Nenhum evento de operação será executado\processado respectivamente.</msg>
+   </Fault>
+</Faults>
