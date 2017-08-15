@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="74399867-04aa-417f-9cf3-af25deb0b280" activeEnvironment="Default" name="ConversionService" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="6fba03a9-3388-4e7b-a7d1-12e95dc7fc27" wsaVersion="NONE" name="ConversionServicePortTypeSOAP11Binding" type="wsdl" bindingName="{saibot.airport/services/utility/conversion}ConversionServicePortTypeSOAP11Binding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8002/soa-infra/services/default/ConversionService/ConversionService?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8002/soa-infra/services/default/ConversionService/ConversionService?WSDL"><con:part><con:url>http://localhost:8002/soa-infra/services/default/ConversionService/ConversionService?WSDL</con:url><con:content><![CDATA[<definitions targetNamespace="saibot.airport/services/utility/conversion" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="saibot.airport/services/utility/conversion" xmlns:conversion="saibot.airport/services/utility/conversion" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <documentation>
+    <abstractWSDL>http://localhost:8002/soa-infra/services/default/ConversionService!1.0/WSDLs/ConversionService.wsdl</abstractWSDL>
+  </documentation>
+  <types>
+    <xsd:schema elementFormDefault="qualified">
+      <xsd:import namespace="saibot.airport/services/utility/conversion" schemaLocation="http://localhost:8002/soa-infra/services/default/ConversionService/ConversionService?XSD=../Schemas/ConversionService.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="temperatureCelsiusToFahrenheitRequestMessage">
+    <part name="in" element="tns:temperatureCelsiusToFahrenheitRequestMessage"/>
+  </message>
+  <message name="temperatureCelsiusToFahrenheitResponseMessage">
+    <part name="return" element="tns:temperatureCelsiusToFahrenheitResponseMessage"/>
+  </message>
+  <message name="distanceFeetToMeterRequestMessage">
+    <part name="in" element="tns:distanceFeetToMeterRequestMessage"/>
+  </message>
+  <message name="distanceFeetToMeterResponseMessage">
+    <part name="return" element="tns:distanceFeetToMeterResponseMessage"/>
+  </message>
+  <message name="distanceMileToMeterRequestMessage">
+    <part name="in" element="tns:distanceMileToMeterRequestMessage"/>
+  </message>
+  <message name="distanceMileToMeterResponseMessage">
+    <part name="return" element="tns:distanceMileToMeterResponseMessage"/>
+  </message>
+  <message name="weightLbToKilogramRequestMessage">
+    <part name="in" element="tns:weightLbToKilogramRequestMessage"/>
+  </message>
+  <message name="weightLbToKilogramResponseMessage">
+    <part name="return" element="tns:weightLbToKilogramResponseMessage"/>
+  </message>
+  <message name="speedKnotToKMphRequestMessage">
+    <part name="in" element="tns:weightLbToKilogramRequestMessage"/>
+  </message>
+  <message name="speedKnotToKMphResponseMessage">
+    <part name="return" element="tns:weightLbToKilogramResponseMessage"/>
+  </message>
+  <portType name="ConversionServicePortType">
+    <operation name="getTemperatureCelsiusToFahrenheit">
+      <input message="tns:temperatureCelsiusToFahrenheitRequestMessage"/>
+      <output message="tns:temperatureCelsiusToFahrenheitResponseMessage"/>
+    </operation>
+    <operation name="getDistanceFeetToMeter">
+      <input message="tns:distanceFeetToMeterRequestMessage"/>
+      <output message="tns:distanceFeetToMeterResponseMessage"/>
+    </operation>
+    <operation name="getDistanceMileToMeter">
+      <input message="tns:distanceMileToMeterRequestMessage"/>
+      <output message="tns:distanceMileToMeterResponseMessage"/>
+    </operation>
+    <operation name="getWeightLbToKilogram">
+      <input message="tns:weightLbToKilogramRequestMessage"/>
+      <output message="tns:weightLbToKilogramResponseMessage"/>
+    </operation>
+    <operation name="getSpeedKnotToKMph">
+      <input message="tns:speedKnotToKMphRequestMessage"/>
+      <output message="tns:speedKnotToKMphResponseMessage"/>
+    </operation>
+  </portType>
+  <binding name="ConversionServicePortTypeSOAP11Binding" type="tns:ConversionServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getTemperatureCelsiusToFahrenheit">
+      <soap:operation style="document" soapAction="saibot.airport/services/utility/conversion/getTemperatureCelsiusToFahrenheit"/>
+      <input>
+        <soap:body use="literal" parts="in"/>
+      </input>
+      <output>
+        <soap:body use="literal" parts="return"/>
+      </output>
+    </operation>
+    <operation name="getDistanceFeetToMeter">
+      <soap:operation style="document" soapAction="saibot.airport/services/utility/conversion/getDistanceFeetToMeter"/>
+      <input>
+        <soap:body use="literal" parts="in"/>
+      </input>
+      <output>
+        <soap:body use="literal" parts="return"/>
+      </output>
+    </operation>
+    <operation name="getDistanceMileToMeter">
+      <soap:operation style="document" soapAction="saibot.airport/services/utility/conversion/getDistanceMileToMeter"/>
+      <input>
+        <soap:body use="literal" parts="in"/>
+      </input>
+      <output>
+        <soap:body use="literal" parts="return"/>
+      </output>
+    </operation>
+    <operation name="getWeightLbToKilogram">
+      <soap:operation style="document" soapAction="saibot.airport/services/utility/conversion/getWeightLbToKilogram"/>
+      <input>
+        <soap:body use="literal" parts="in"/>
+      </input>
+      <output>
+        <soap:body use="literal" parts="return"/>
+      </output>
+    </operation>
+    <operation name="getSpeedKnotToKMph">
+      <soap:operation style="document" soapAction="saibot.airport/services/utility/conversion/getSpeedKnotToKMph"/>
+      <input>
+        <soap:body use="literal" parts="in"/>
+      </input>
+      <output>
+        <soap:body use="literal" parts="return"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="ConversionService">
+    <port name="ConversionServicePort" binding="tns:ConversionServicePortTypeSOAP11Binding">
+      <soap:address location="http://localhost:8002/soa-infra/services/default/ConversionService/ConversionService"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8002/soa-infra/services/default/ConversionService/ConversionService?XSD=../Schemas/ConversionService.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="saibot.airport/services/utility/conversion" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="saibot.airport/data/common" xmlns:conversion="saibot.airport/services/utility/conversion">
+  <xsd:import namespace="saibot.airport/data/common" schemaLocation="http://localhost:8002/soa-infra/services/default/ConversionService/ConversionService?XSD=../Schemas/common.xsd"/>
+  <xsd:element name="temperatureCelsiusToFahrenheitRequestMessage" type="conversion:temperatureCelsiusType"/>
+  <xsd:element name="temperatureCelsiusToFahrenheitResponseMessage" type="conversion:temperatureFahrenheitType"/>
+  <xsd:element name="distanceFeetToMeterRequestMessage" type="common:distanceType"/>
+  <xsd:element name="distanceFeetToMeterResponseMessage" type="common:distanceType"/>
+  <xsd:element name="distanceMileToMeterRequestMessage" type="common:distanceType"/>
+  <xsd:element name="distanceMileToMeterResponseMessage" type="common:distanceType"/>
+  <xsd:element name="weightLbToKilogramRequestMessage" type="xsd:double"/>
+  <xsd:element name="weightLbToKilogramResponseMessage" type="xsd:double"/>
+  <xsd:element name="speedKnotToKMphRequestMessage" type="xsd:double"/>
+  <xsd:element name="speedKnotToKMphResponseMessage" type="xsd:double"/>
+  <xsd:complexType name="temperatureCelsiusType">
+    <xsd:sequence>
+      <xsd:element name="temperature" nillable="false" type="common:baseCelsiusTemperatureType" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="temperatureFahrenheitType">
+    <xsd:sequence>
+      <xsd:element name="temperature" nillable="false" type="common:baseFahrenheitTemperatureType" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:8002/soa-infra/services/default/ConversionService/ConversionService?XSD=../Schemas/common.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="saibot.airport/data/common" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="saibot.airport/data/common">
+  <xsd:simpleType name="baseCelsiusTemperatureType">
+    <xsd:restriction base="xsd:float">
+      <xsd:minInclusive value="-273.15"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="baseFahrenheitTemperatureType">
+    <xsd:restriction base="xsd:float">
+      <xsd:minInclusive value="-459.67"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="alpha2Type">
+    <xsd:annotation>
+      <xsd:documentation>2-char uppercase strings only</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="2"/>
+      <xsd:pattern value="[A-Z]{2}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="alpha3Type">
+    <xsd:annotation>
+      <xsd:documentation>3-char uppercase strings only</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="3"/>
+      <xsd:pattern value="[A-Z]{3}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="alphaNumeric4Type">
+    <xsd:annotation>
+      <xsd:documentation>4-char strings only</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="4"/>
+      <xsd:pattern value="[0-9A-Z]{4}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="countryCodeType">
+    <xsd:annotation>
+      <xsd:documentation>the code is the unique two letter ISO 3166-1 indication for a country - see http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 and http://www.iso.org/iso/home/standards/country_codes.htm</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="common:alpha2Type"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="iataAirportType">
+    <xsd:annotation>
+      <xsd:documentation>the code is the three letter IATA identification for airports; see for example http://www.world-airport-codes.com/ and http://www.iata.org/publications/Pages/code-search.aspx</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="common:alpha3Type"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="iataAirlineType">
+    <xsd:annotation>
+      <xsd:documentation>the code is the two letter IATA identification for airlines (carriers); see for example http://www.iata.org/publications/Pages/code-search.aspx; http://en.wikipedia.org/wiki/Airline_codes-All</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="common:alpha2Type"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="iacoCodeType">
+    <xsd:annotation>
+      <xsd:documentation>4-char strings only</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="4"/>
+      <xsd:pattern value="[0-9A-Z]{4}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="iataEquipmentCodeType">
+    <xsd:annotation>
+      <xsd:documentation>strings with numbers and captials only; see for example
+                         http://www.flugzeuginfo.net/table_accodes_iata_en.php</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="3"/>
+      <xsd:pattern value="[0-9A-Z]{4}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="timezoneOffsetType">
+    <xsd:annotation>
+      <xsd:documentation>an offset (in hours) versus UTC</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:float">
+      <xsd:maxInclusive value="12"/>
+      <xsd:minInclusive value="-12"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="geoLocationType">
+    <xsd:sequence>
+      <xsd:element name="latitude" nillable="false" type="xsd:double" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="longitude" nillable="false" type="xsd:double" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="elevation" nillable="false" type="xsd:double" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="distanceType">
+    <xsd:annotation>
+      <xsd:documentation>a distance in some unspecified unit</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:double">
+      <xsd:minInclusive value="0"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="flightNumberType">
+    <xsd:annotation>
+      <xsd:documentation>A flight number. Flight numbers are integer values
+                         within the range of [0-9999]. Example: 1234</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="9999"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="hourOfDayType">
+    <xsd:annotation>
+      <xsd:documentation>An hour during the day: 0-23</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="23"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="fiveMinuteBlockType">
+    <xsd:annotation>
+      <xsd:documentation>A five minute block within one clock hour: 0(-5), 5(-10), 10()-15)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="55"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="yesNoType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Yes"/>
+      <xsd:enumeration value="No"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="periodType">
+    <xsd:sequence>
+      <xsd:element name="season" nillable="false" type="common:seasonType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="year" nillable="false" type="xsd:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="searchMetaType">
+    <xsd:sequence>
+      <xsd:element name="offset" nillable="false" type="xsd:nonNegativeInteger" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="numberOfResults" nillable="false" type="xsd:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="sortBy" nillable="false" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="flightStatusType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Active"/>
+      <xsd:enumeration value="Suspended"/>
+      <xsd:enumeration value="Open"/>
+      <xsd:enumeration value="Closed"/>
+      <xsd:enumeration value="Cancelled"/>
+      <xsd:enumeration value="Diverted"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="flightActionType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="EnRoute"/>
+      <xsd:enumeration value="FinalApproach"/>
+      <xsd:enumeration value="Taxiing"/>
+      <xsd:enumeration value="AtGate"/>
+      <xsd:enumeration value="BagageOnBelt"/>
+      <xsd:enumeration value="Prepare"/>
+      <xsd:enumeration value="GateOpen"/>
+      <xsd:enumeration value="GateClosing"/>
+      <xsd:enumeration value="GateClosed"/>
+      <xsd:enumeration value="Other"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="seasonType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="S"/>
+      <xsd:enumeration value="W"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="arrivalOrDepartureType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="A"/>
+      <xsd:enumeration value="D"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="weekDayType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Monday"/>
+      <xsd:enumeration value="Tuesday"/>
+      <xsd:enumeration value="Wednesday"/>
+      <xsd:enumeration value="Thursday"/>
+      <xsd:enumeration value="Friday"/>
+      <xsd:enumeration value="Saturday"/>
+      <xsd:enumeration value="Sunday"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8002/soa-infra/services/default/ConversionService/ConversionService</con:endpoint></con:endpoints><con:operation id="d8c32eba-ba63-4125-a80e-43eba3d783b0" isOneWay="false" action="saibot.airport/services/utility/conversion/getDistanceFeetToMeter" name="getDistanceFeetToMeter" bindingOperationName="getDistanceFeetToMeter" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1f47ac8c-643b-4687-8bbf-81376addf5f0" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8002/soa-infra/services/default/ConversionService/ConversionService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="saibot.airport/services/utility/conversion">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <con:distanceFeetToMeterRequestMessage>?</con:distanceFeetToMeterRequestMessage>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="saibot.airport/services/utility/conversion/getDistanceFeetToMeter"/></con:call></con:operation><con:operation id="a5cecbf5-64df-4991-9eaf-c0ec8045894c" isOneWay="false" action="saibot.airport/services/utility/conversion/getDistanceMileToMeter" name="getDistanceMileToMeter" bindingOperationName="getDistanceMileToMeter" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="00e44bb6-dfcc-4aaa-a6e7-31f03b9f4fca" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8002/soa-infra/services/default/ConversionService/ConversionService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="saibot.airport/services/utility/conversion">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <con:distanceMileToMeterRequestMessage>?</con:distanceMileToMeterRequestMessage>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="saibot.airport/services/utility/conversion/getDistanceMileToMeter"/></con:call></con:operation><con:operation id="814a1019-12ca-46d8-9f16-64abd065d6b3" isOneWay="false" action="saibot.airport/services/utility/conversion/getSpeedKnotToKMph" name="getSpeedKnotToKMph" bindingOperationName="getSpeedKnotToKMph" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="13f2929f-10c2-4399-a582-4f6b1c9204f2" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8002/soa-infra/services/default/ConversionService/ConversionService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="saibot.airport/services/utility/conversion">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <con:weightLbToKilogramRequestMessage>?</con:weightLbToKilogramRequestMessage>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="saibot.airport/services/utility/conversion/getSpeedKnotToKMph"/></con:call></con:operation><con:operation id="484aff38-4c20-4f17-858f-3f232e55dace" isOneWay="false" action="saibot.airport/services/utility/conversion/getTemperatureCelsiusToFahrenheit" name="getTemperatureCelsiusToFahrenheit" bindingOperationName="getTemperatureCelsiusToFahrenheit" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="15ee28d5-6d03-4c49-b3dc-d11ed565276b" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7001/soa-infra/services/default/ConversionService/ConversionService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="saibot.airport/services/utility/conversion">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <con:temperatureCelsiusToFahrenheitRequestMessage>\r
+         <con:temperature>0</con:temperature>\r
+      </con:temperatureCelsiusToFahrenheitRequestMessage>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="saibot.airport/services/utility/conversion/getTemperatureCelsiusToFahrenheit"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="17ef1c00-ed79-4285-baa2-9e1176a0747c" isOneWay="false" action="saibot.airport/services/utility/conversion/getWeightLbToKilogram" name="getWeightLbToKilogram" bindingOperationName="getWeightLbToKilogram" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2f406bcf-5e10-4bee-88ba-351d478f02c6" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8002/soa-infra/services/default/ConversionService/ConversionService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="saibot.airport/services/utility/conversion">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <con:weightLbToKilogramRequestMessage>?</con:weightLbToKilogramRequestMessage>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="saibot.airport/services/utility/conversion/getWeightLbToKilogram"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
