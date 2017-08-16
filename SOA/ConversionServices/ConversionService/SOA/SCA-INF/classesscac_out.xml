@@ -8,16 +8,6 @@
       <file>Mediators/ConversionMediator.mplan</file>
       <name>Mediators/ConversionMediator.mplan</name>
       <fix/>
-      <msg>A Operação\Evento "getDistanceFeetToMeter" não contém ocorrência. Nenhum evento de operação será executado\processado respectivamente.</msg>
-   </Fault>
-   <Fault>
-      <severity>warning</severity>
-      <loc/>
-      <line/>
-      <col/>
-      <file>Mediators/ConversionMediator.mplan</file>
-      <name>Mediators/ConversionMediator.mplan</name>
-      <fix/>
       <msg>A Operação\Evento "getDistanceMileToMeter" não contém ocorrência. Nenhum evento de operação será executado\processado respectivamente.</msg>
    </Fault>
    <Fault>
@@ -39,5 +29,25 @@
       <name>Mediators/ConversionMediator.mplan</name>
       <fix/>
       <msg>A Operação\Evento "getSpeedKnotToKMph" não contém ocorrência. Nenhum evento de operação será executado\processado respectivamente.</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/ns:composite/ns:wire/ns:target.uri[.='LengthDistanceUnitConvertorService']</loc>
+      <line>55</line>
+      <col>17</col>
+      <file>D:\google-drive\work\claro\projects\soasuite12\SOA\ConversionServices\ConversionService\SOA\composite.xml</file>
+      <name>D:\google-drive\work\claro\projects\soasuite12\SOA\ConversionServices\ConversionService\SOA\composite.xml</name>
+      <fix/>
+      <msg>Falha na validação do esquema com a exceção "null"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc/>
+      <line/>
+      <col/>
+      <file/>
+      <name/>
+      <fix/>
+      <msg>A mensagem definida no arquivo "testsuites/quickRun/messages/disntanceFeetToMeterRequestMessage.xml" não é um documento XML válido. Esta mensagem será ignorada.</msg>
    </Fault>
 </Faults>

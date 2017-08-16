@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faultPolicies 
+    xmlns="http://schemas.oracle.com/bpel/faultpolicy"
+    xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+    xmlns:bpel1="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+    xmlns:bpel2="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:medns="http://schemas.oracle.com/mediator/faults"
+    xmlns:rjm="http://schemas.oracle.com/sca/rejectedmessages">
+
+    <faultPolicy id="SynchronousMediatorPolicy">
+        <Conditions>
+            <faultName name="medns:mediatorFault" xmlns:medns="http://schemas.oracle.com/mediator/faults"
+                       description="Some fault is synchronous processing (not data validation)">
+                <condition>
+                    <test>contains($fault.mediatorErrorCode, "TYPE_DATA_VALIDATION")</test>
+                    <action ref="abortInstance"/>
+                </condition>
+                <condition>
+                    <action ref="default-rethrow"/>
+                </condition>
+            </faultName>
+        </Conditions>
+        <Alerts/>
+        <Actions>
+            <Action id="abortInstance">
+                <abort/>
+            </Action>
+            <Action id="default-termination">
+                <abort/>
+            </Action>
+            <Action id="default-human">
+                <humanIntervention/>
+            </Action>
+            <Action id="default-java">
+                <javaAction className="oracle.integration.platform.faultpolicy.IFaultRecoveryJavaClass" defaultAction="default-termination"/>
+            </Action>
+            <Action id="default-replay">
+                <replayScope/>
+            </Action>
+            <Action id="default-rethrow">
+                <rethrowFault/>
+            </Action>
+            <Action id="default-ws">
+                <invokeWS  uri="WebServiceURI"/><!-- format - <Absolute wsdl path>|service name|port name -->
+            </Action>
+            <Action id="default-enqueue">
+                <enqueue uri="QueueURI"/> <!-- QueueURI format  - jdbc:oracle:thin:@<host>:<port>:<sid>#<un>/<pw>#queue -->
+            </Action>
+            <Action id="default-file">
+                <fileAction>
+                    <location>FOLDER_LOCATION</location>
+                    <fileName>FILE_NAME</fileName><!-- FILE_NAME will support %ID%(rejected message instance id) or %TIMESTAMP% wildcards -->
+                </fileAction>
+            </Action>
+            <Action id="default-retry">
+                <retry>
+                    <retryCount>3</retryCount>
+                    <retryInterval>2</retryInterval>
+                </retry>
+            </Action>
+        </Actions>
+        <Properties/>
+    </faultPolicy>
+</faultPolicies>

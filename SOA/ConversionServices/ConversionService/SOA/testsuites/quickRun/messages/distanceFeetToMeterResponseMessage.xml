@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conversion:distanceFeetToMeterResponseMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                   xsi:schemaLocation="saibot.airport/services/utility/conversion ../../../Schemas/ConversionService.xsd"
+                                   xmlns:conversion="saibot.airport/services/utility/conversion">304.8</conversion:distanceFeetToMeterResponseMessage>

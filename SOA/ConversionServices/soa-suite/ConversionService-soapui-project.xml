@@ -347,7 +347,7 @@
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <con:temperatureCelsiusToFahrenheitRequestMessage>\r
-         <con:temperature>0</con:temperature>\r
+         <con:temperature>0</con:temperature>
       </con:temperatureCelsiusToFahrenheitRequestMessage>\r
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="saibot.airport/services/utility/conversion/getTemperatureCelsiusToFahrenheit"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="17ef1c00-ed79-4285-baa2-9e1176a0747c" isOneWay="false" action="saibot.airport/services/utility/conversion/getWeightLbToKilogram" name="getWeightLbToKilogram" bindingOperationName="getWeightLbToKilogram" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2f406bcf-5e10-4bee-88ba-351d478f02c6" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8002/soa-infra/services/default/ConversionService/ConversionService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="saibot.airport/services/utility/conversion">\r
