@@ -20,11 +20,11 @@
         </dgm:operations>
     </dgm:gService>
     <dgm:gReference name="LengthDistanceUnitConvertorService">
-        <dgm:body borderWidth="2" arcRad="20" X="664" Y="41" width="136" height="84">
+        <dgm:body borderWidth="2" arcRad="20" X="726" Y="41" width="136" height="84">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="654" Y="34" width="156" height="98">
+        <dgm:shadow arcRad="20" X="716" Y="34" width="156" height="98">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="LengthDistanceUnitConvertorService" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://www.webserviceX.NET/#wsdl.interface(lengthUnitSoap)"/>
@@ -34,12 +34,12 @@
         </dgm:operations>
     </dgm:gReference>
     <dgm:gComponent name="ConversionMediator">
-        <dgm:body borderWidth="2" arcRad="20" X="346" Y="26" width="130" height="61">
+        <dgm:body borderWidth="2" arcRad="20" X="377" Y="26" width="130" height="61">
             <dgm:borderColor r="128" g="92" b="148"/>
             <dgm:lightBgColor r="208" g="169" b="227"/>
             <dgm:darkBgColor r="183" g="132" b="212"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="336" Y="19" width="150" height="77">
+        <dgm:shadow arcRad="20" X="367" Y="19" width="150" height="77">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="ConversionMediator" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="saibot.airport/services/utility/conversion#wsdl.interface(ConversionServicePortType)"/>
@@ -47,12 +47,12 @@
         <dgm:nodeIcon URI="/oracle/tip/tools/ide/mediator/resource/image/mediator_20x20.png" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
     <dgm:gWireLink source="ConversionService" target="ConversionMediator/ConversionMediator" width="2">
-        <dgm:gSegment X1="168" Y1="51" X2="336" Y2="51"/>
+        <dgm:gSegment X1="168" Y1="51" X2="367" Y2="51"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="ConversionMediator/LengthDistanceUnitConvertorService" target="LengthDistanceUnitConvertorService" width="2">
-        <dgm:gSegment X1="486" Y1="51" X2="654" Y2="51"/>
+        <dgm:gSegment X1="517" Y1="51" X2="716" Y2="51"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
