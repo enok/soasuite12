@@ -1,0 +1,6 @@
+<view_states>
+   <function arity="1" name="func">
+      <source_tree_view last.visible.row="16" last.visible.path="/sourceRoot[[0]]/sendFlightUpdateNotificationRequestMessage[[0]]/CommunicationMetadata[[3]]/FromAddress[[3]]" first.visible.path="/sourceRoot[[0]]/sendFlightUpdateNotificationRequestMessage[[0]]" expanded.paths="/sourceRoot[[0]]/sendFlightUpdateNotificationRequestMessage[[0]]&#xA;/sourceRoot[[0]]/sendFlightUpdateNotificationRequestMessage[[0]]/FlightStatus[[2]]&#xA;/sourceRoot[[0]]/sendFlightUpdateNotificationRequestMessage[[0]]/CommunicationMetadata[[3]]" first.visible.row="0" selected.paths=""/>
+      <target_tree_view last.visible.row="3" last.visible.path="/TargetRoot[[0]]/message[[0]]/attachment[[1]]/href[[0]]" first.visible.path="/TargetRoot[[0]]/message[[0]]" expanded.paths="/TargetRoot[[0]]/message[[0]]&#xA;/TargetRoot[[0]]/message[[0]]/attachment[[1]]" first.visible.row="0" selected.paths=""/>
+   </function>
+</view_states>

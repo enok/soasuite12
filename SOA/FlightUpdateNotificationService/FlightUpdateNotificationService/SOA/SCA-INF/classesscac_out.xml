@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Faults>
+   <Fault>
+      <severity>warning</severity>
+      <loc/>
+      <line/>
+      <col/>
+      <file>Mediators/MachineToHumanMediator.mplan</file>
+      <name>Mediators/MachineToHumanMediator.mplan</name>
+      <fix/>
+      <msg>Designando o elemento "$in.in/tns:sendFlightUpdateNotificationRequestMessage/tns:CommunicationMetadata/tns:ToAddress" para a propriedade "$out.property.jca.ums.to". Certifique-se de que a origem é o nó-folha, caso contrário, todos os nós filhos da origem ficam concatenados e designados ao alvo.</msg>
+   </Fault>
+</Faults>
