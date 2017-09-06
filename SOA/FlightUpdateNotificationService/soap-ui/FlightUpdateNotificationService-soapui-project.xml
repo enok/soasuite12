@@ -409,8 +409,8 @@
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <flig:sendFlightUpdateNotificationRequestMessage>\r
-         <flig:Carrier>?</flig:Carrier>\r
-         <flig:FlightNumber>?</flig:FlightNumber>\r
+         <flig:Carrier>The Carrier</flig:Carrier>\r
+         <flig:FlightNumber>flight number 1</flig:FlightNumber>\r
          <flig:FlightStatus>\r
             <!--Optional:-->\r
             <flig1:TimePlanningUnit>\r
@@ -476,7 +476,7 @@
          </flig:FlightStatus>\r
          <flig:CommunicationMetadata>\r
             <flig:Channel>?</flig:Channel>\r
-            <flig:Salutation>?</flig:Salutation>\r
+            <flig:Salutation>Hi</flig:Salutation>\r
             <flig:ToAddress>enok.jesus@sysmap.com.br</flig:ToAddress>\r
             <flig:FromAddress>enok.jesus@gmail.com</flig:FromAddress>\r
          </flig:CommunicationMetadata>\r
