@@ -19,7 +19,8 @@
                 <con:actions>
                     <con1:route>
                         <con2:id>_ActionId-7f000001.512262b1.0.15e728d7924.N8000</con2:id>
-                        <con1:service ref="AircracftMovementService/FinanceAircraftMovementsReporter" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:service ref="AircracftMovementService/Adapters/FinanceAircraftMovementsReporterJCA" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:operation>reportAircraftMovement</con1:operation>
                         <con1:outboundTransform/>
                         <con1:responseTransform/>
                     </con1:route>
