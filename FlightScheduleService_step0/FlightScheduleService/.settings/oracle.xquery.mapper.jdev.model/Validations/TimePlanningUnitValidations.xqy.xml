@@ -1,0 +1,6 @@
+<view_states>
+   <function arity="1" name="validateTimeplanningUnit">
+      <source_tree_view last.visible.row="0" last.visible.path="/sourceRoot[[0]]/NO_NAME[[0]]" first.visible.path="/sourceRoot[[0]]/NO_NAME[[0]]" expanded.paths="" first.visible.row="0" selected.paths=""/>
+      <target_tree_view last.visible.row="0" last.visible.path="/TargetRoot[[0]]/ValidationErrorList[[0]]" first.visible.path="/TargetRoot[[0]]/ValidationErrorList[[0]]" expanded.paths="" first.visible.row="0" selected.paths=""/>
+   </function>
+</view_states>
