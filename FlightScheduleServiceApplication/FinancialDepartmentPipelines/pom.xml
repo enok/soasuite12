@@ -3,15 +3,18 @@
 
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>com.oracle.servicebus</groupId>
+        <artifactId>sbar-project-common</artifactId>
+        <version>12.2.1-2-0</version>
+    </parent>
+
     <groupId>FlightScheduleServiceApplication</groupId>
-    <artifactId>FlightScheduleServiceApplication</artifactId>
+    <artifactId>FinancialDepartmentPipelines</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <packaging>pom</packaging>
+    <packaging>sbar</packaging>
 
-    <modules>
-        <module>System</module>
-        <module>FinancialDepartmentPipelines</module>
-    </modules>
+    <description/>
 
 </project>
