@@ -118,13 +118,13 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="FlightScheduleService_FlightScheduleService_ServiceBusProjectProfile">
-            <value n="profileClass" v="SbProjectDeployProfile"/>
-            <value n="profileName" v="FlightScheduleService_FlightScheduleService_ServiceBusProjectProfile"/>
+         <hash n="ServiceBus1">
+            <value n="profileClass" v="SbAppDeployProfile"/>
+            <value n="profileName" v="ServiceBus1"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="FlightScheduleService_FlightScheduleService_ServiceBusProjectProfile"/>
+         <string v="ServiceBus1"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.maven.compiler.MavenConfiguration">
