@@ -1,5 +1,10 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <jws:workspace xmlns:jws="http://xmlns.oracle.com/ide/project">
+   <hash n="adrs-workspace-properties">
+      <value n="adrs-instance-binding" v="CompactNodeServer"/>
+      <value n="deploy-timeout" v="0"/>
+      <value n="runtime-application-name" v="FlightScheduleServiceApplication"/>
+   </hash>
    <value n="appTemplateId" v="sbApplicationAndProjectTemplate"/>
    <hash n="component-versions">
       <value n="oracle.adf.share.dt.migration.jps.JaznCredStoreMigratorHelper" v="11.1.1.1.0"/>
@@ -24,6 +29,7 @@
       <string v="oracle.jdeveloper.model.PathsConfiguration/ResourceBundlesContentSet"/>
    </list>
    <list n="listOfChildren">
+      <hash><url n="URL" path="CommonPipelines/CommonPipelines.jpr"/></hash>
       <hash><url n="URL" path="FinancialDepartmentPipelines/FinancialDepartmentPipelines.jpr"/></hash>
       <hash><url n="URL" path="FlightScheduleService/FlightScheduleService.jpr"/></hash>
       <hash><url n="URL" path="PrivateSubmitFlightSchedule/PrivateSubmitFlightSchedule.jpr"/></hash>
