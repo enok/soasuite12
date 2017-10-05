@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">
+    <con:coreEntry>
+        <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
+            <con:wsdl ref="FlightScheduleService/WSDLs/FlightScheduleService"/>
+            <con:binding>
+                <con:name>execute_bind</con:name>
+                <con:namespace>saibot.airport/services/flightschedule</con:namespace>
+            </con:binding>
+        </con:binding>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router>
+        <con:pipeline type="request" name="request-7f000001.31bddefc.0.15ea08f84dd.N8000">
+            <con:stage id="_StageId-7f000001.31bddefc.0.15ea08f84dd.N7ff1" name="Initialization">
+                <con:context>
+                    <con1:userNsDecl prefix="fse" namespace="saibot.airport/services/flightschedule"/>
+                </con:context>
+                <con:actions>
+                    <con2:assign varName="processingResults">
+                        <con1:id>_ActionId-7f000001.31bddefc.0.15ea08f84dd.N7fee</con1:id>
+                        <con2:expr>
+                            <con1:xqueryText>&lt;fse:ProcessingResults xmlns:fse="saibot.airport/services/flightschedule"/></con1:xqueryText>
+                        </con2:expr>
+                    </con2:assign>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-7f000001.31bddefc.0.15ea08f84dd.N7ffe" name="SchemaValidation" errorHandler="error-7f000001.31bddefc.0.15ea08f84dd.N7ff9">
+                <con:context>
+                    <con1:userNsDecl prefix="flig" namespace="saibot.airport/services/flightschedule"/>
+                </con:context>
+                <con:actions>
+                    <con2:validate>
+                        <con1:id>_ActionId-7f000001.31bddefc.0.15ea08f84dd.N7ffa</con1:id>
+                        <con2:schema ref="FlightScheduleService/Schemas/FlightScheduleService"/>
+                        <con2:schemaElement xmlns:flig="saibot.airport/services/flightschedule">flig:submitScheduledFlightRequestMessage</con2:schemaElement>
+                        <con2:varName>body</con2:varName>
+                        <con2:location>
+                            <con1:xpathText>./flig:submitScheduledFlightRequestMessage</con1:xpathText>
+                        </con2:location>
+                    </con2:validate>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-7f000001.4cafd828.0.15ea4821717.N7fe5" name="CustomValidations">
+                <con:context>
+                    <con1:userNsDecl prefix="val" namespace="saibot/validation"/>
+                    <con1:userNsDecl prefix="fse" namespace="saibot.airport/services/flightschedule"/>
+                </con:context>
+                <con:actions>
+                    <con2:assign varName="validationResults">
+                        <con1:id>_ActionId-7f000001.4cafd828.0.15ea4821717.N7fe2</con1:id>
+                        <con2:expr>
+                            <con1:xqueryTransform>
+                                <con1:resource ref="FlightScheduleService/Validations/ValidateSubmitScheduledFlightRequest"/>
+                                <con1:param name="submitScheduledFlightRequest">
+                                    <con1:path>$body/fse:submitScheduledFlightRequestMessage</con1:path>
+                                </con1:param>
+                            </con1:xqueryTransform>
+                        </con2:expr>
+                    </con2:assign>
+                    <con2:foreach>
+                        <con1:id>_ActionId-7f000001.4cafd828.0.15ea4821717.N7fdf</con1:id>
+                        <con2:variable>validationResults</con2:variable>
+                        <con2:expression>
+                            <con1:xpathText>./val:ValidationErrorList/val:ValidationError</con1:xpathText>
+                        </con2:expression>
+                        <con2:value-variable>ValidationError</con2:value-variable>
+                        <con2:index-variable>currentErrorIndex</con2:index-variable>
+                        <con2:total-variable>totalErrorCount</con2:total-variable>
+                        <con2:actions>
+                            <con2:insert varName="processingResults">
+                                <con1:id>_ActionId-7f000001.4cafd828.0.15ea4821717.N7fdc</con1:id>
+                                <con2:where>first-child</con2:where>
+                                <con2:expr>
+                                    <con1:xqueryText><![CDATA[<fse:ProcessingResult xmlns:fse="saibot.airport/services/flightschedule">
+  <fse:ResultCode>{$ValidationError/val:code}</fse:ResultCode>
+  <fse:Description>{$ValidationError/val:message}</fse:Description>
+  <fse:ContextTrace>{$ValidationError}</fse:ContextTrace>
+</fse:ProcessingResult>]]></con1:xqueryText>
+                                </con2:expr>
+                            </con2:insert>
+                        </con2:actions>
+                    </con2:foreach>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-7f000001.4cafd828.0.15ea4821717.N7faa" name="AirlineValueMap" errorHandler="error-7f000001.4cafd828.0.15ea4821717.N7f9d">
+                <con:context>
+                    <con1:userNsDecl prefix="flig" namespace="saibot.airport/services/flightschedule"/>
+                </con:context>
+                <con:actions>
+                    <con2:ifThenElse>
+                        <con1:id>_ActionId-7f000001.4cafd828.0.15ea4821717.N7fa3</con1:id>
+                        <con2:case id="_BranchId-7f000001.4cafd828.0.15ea4821717.N7fa2">
+                            <con2:condition>
+                                <con1:xqueryText>fn:string-length($body/flig:submitScheduledFlightRequestMessage/flig:Carrier) lt 2 or
+fn:string-length($body/flig:submitScheduledFlightRequestMessage/flig:Carrier) gt 3</con1:xqueryText>
+                            </con2:condition>
+                            <con2:actions>
+                                <con2:Error>
+                                    <con1:id>_ActionId-7f000001.4cafd828.0.15ea4821717.N7f9f</con1:id>
+                                    <con2:errCode>FSE-10</con2:errCode>
+                                    <con2:message>The carrier element has the wrong lenght - it can neither be a valid IATA code nor a corret ICAO code.</con2:message>
+                                </con2:Error>
+                            </con2:actions>
+                        </con2:case>
+                        <con2:default>
+                            <con2:ifThenElse>
+                                <con1:id>_ActionId-7f000001.4cafd828.0.15ea4821717.N7f5e</con1:id>
+                                <con2:case id="_BranchId-7f000001.4cafd828.0.15ea4821717.N7f5d">
+                                    <con2:condition>
+                                        <con1:xqueryText>fn:string-length($body/flig:submitScheduledFlightRequestMessage/flig:Carrier) = 3</con1:xqueryText>
+                                    </con2:condition>
+                                    <con2:actions>
+                                        <con2:assign varName="iataAirlineCode">
+                                            <con1:id>_ActionId-7f000001.4cafd828.0.15ea4821717.N7f5a</con1:id>
+                                            <con2:expr>
+                                                <con1:xqueryText>dvm:lookup('FlightScheduleService/Validations/ICAOToiataAirlineMapping', 'ICAOAirlineCode', $body/flig:submitScheduledFlightRequestMessage/flig:Carrier, 'iataAirlineCode', 'XXX')</con1:xqueryText>
+                                            </con2:expr>
+                                        </con2:assign>
+                                        <con2:ifThenElse>
+                                            <con1:id>_ActionId-7f000001.4cafd828.0.15ea4821717.N7f53</con1:id>
+                                            <con2:case id="_BranchId-7f000001.4cafd828.0.15ea4821717.N7f52">
+                                                <con2:condition>
+                                                    <con1:xqueryText>$iataAirlineCode = 'XXX'</con1:xqueryText>
+                                                </con2:condition>
+                                                <con2:actions>
+                                                    <con2:Error>
+                                                        <con1:id>_ActionId-7f000001.4cafd828.0.15ea4821717.N7f4f</con1:id>
+                                                        <con2:errCode>FSE-647</con2:errCode>
+                                                        <con2:message>The Airline (Carrier code) is not a known ICAO code</con2:message>
+                                                    </con2:Error>
+                                                </con2:actions>
+                                            </con2:case>
+                                            <con2:default>
+                                                <con2:replace varName="body" contents-only="true">
+                                                    <con1:id>_ActionId-7f000001.4cafd828.0.15ea4821717.N7f4a</con1:id>
+                                                    <con2:location>
+                                                        <con1:xpathText>./flig:submitScheduledFlightRequestMessage/flig:Carrier</con1:xpathText>
+                                                    </con2:location>
+                                                    <con2:expr>
+                                                        <con1:xqueryText>$iataAirlineCode</con1:xqueryText>
+                                                    </con2:expr>
+                                                </con2:replace>
+                                            </con2:default>
+                                        </con2:ifThenElse>
+                                    </con2:actions>
+                                </con2:case>
+                                <con2:default/>
+                            </con2:ifThenElse>
+                        </con2:default>
+                    </con2:ifThenElse>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-7f000001.4cafd828.0.15ea4821717.N8000" name="ContinueOrReturn">
+                <con:context>
+                    <con1:userNsDecl prefix="fse" namespace="saibot.airport/services/flightschedule"/>
+                </con:context>
+                <con:actions>
+                    <con2:ifThenElse>
+                        <con1:id>_ActionId-7f000001.4cafd828.0.15ea4821717.N7fed</con1:id>
+                        <con2:case id="_BranchId-7f000001.4cafd828.0.15ea4821717.N7fec">
+                            <con2:condition>
+                                <con1:xqueryText>fn:count($processingResults/*) gt 0</con1:xqueryText>
+                            </con2:condition>
+                            <con2:actions>
+                                <con2:replace varName="body" contents-only="true">
+                                    <con1:id>_ActionId-7f000001.4cafd828.0.15ea4821717.N7fe9</con1:id>
+                                    <con2:expr>
+                                        <con1:xqueryText>&lt;fse:submitScheduleFlightResponseMessage xmlns:fse="saibot.airport/services/flightschedule">
+  {$processingResults}
+&lt;/fse:submitScheduleFlightResponseMessage></con1:xqueryText>
+                                    </con2:expr>
+                                </con2:replace>
+                                <con1:reply isError="false">
+                                    <con1:id>_ActionId-7f000001.4cafd828.0.15ea4821717.N7fe6</con1:id>
+                                </con1:reply>
+                            </con2:actions>
+                        </con2:case>
+                        <con2:default/>
+                    </con2:ifThenElse>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-7f000001.31bddefc.0.15ea08f84dd.N7fff">
+            <con:stage id="_StageId-7f000001.31bddefc.0.15ea08f84dd.N7ffd" name="Stage1">
+                <con:context/>
+                <con:actions/>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="error" name="error-7f000001.31bddefc.0.15ea08f84dd.N7ff9">
+            <con:stage id="_StageId-7f000001.31bddefc.0.15ea08f84dd.N7ff8" name="AddErrorToProcessingResults">
+                <con:context>
+                    <con1:userNsDecl prefix="fse" namespace="saibot.airport/services/flightschedule"/>
+                </con:context>
+                <con:actions>
+                    <con2:insert varName="processingResults">
+                        <con1:id>_ActionId-7f000001.31bddefc.0.15ea08f84dd.N7ff5</con1:id>
+                        <con2:where>first-child</con2:where>
+                        <con2:expr>
+                            <con1:xqueryText><![CDATA[<fse:ProcessingResult xmlns:fse="saibot.airport/services/flightschedule">
+  <fse:ResultCode>{$fault/ctx:errorCode}</fse:ResultCode>
+  <fse:Description>{$fault/ctx:reason}</fse:Description>
+  <fse:ContextTrace>{$fault}</fse:ContextTrace>
+</fse:ProcessingResult>]]></con1:xqueryText>
+                        </con2:expr>
+                    </con2:insert>
+                    <con1:resume>
+                        <con1:id>_ActionId-7f000001.31bddefc.0.15ea08f84dd.N7ff2</con1:id>
+                    </con1:resume>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="error" name="error-7f000001.4cafd828.0.15ea4821717.N7f9d">
+            <con:stage id="_StageId-7f000001.4cafd828.0.15ea4821717.N7f9c" name="Stage1">
+                <con:context/>
+                <con:actions>
+                    <con2:insert varName="processingResults">
+                        <con1:id>_ActionId-7f000001.4cafd828.0.15ea4821717.N7f66</con1:id>
+                        <con2:where>first-child</con2:where>
+                        <con2:expr>
+                            <con1:xqueryText><![CDATA[<fse:ProcessingResult xmlns:fse="saibot.airport/services/flightschedule">
+  <fse:ResultCode>{$fault/ctx:errorCode}</fse:ResultCode>
+  <fse:Description>{$fault/ctx:reason}</fse:Description>
+  <fse:ContextTrace>{$fault}</fse:ContextTrace>
+</fse:ProcessingResult>]]></con1:xqueryText>
+                        </con2:expr>
+                    </con2:insert>
+                    <con1:resume>
+                        <con1:id>_ActionId-7f000001.4cafd828.0.15ea4821717.N7f69</con1:id>
+                    </con1:resume>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:pipeline-node name="Validations">
+                <con:request>request-7f000001.31bddefc.0.15ea08f84dd.N8000</con:request>
+                <con:response>response-7f000001.31bddefc.0.15ea08f84dd.N7fff</con:response>
+            </con:pipeline-node>
+            <con:route-node name="RouteNode1" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                <con:context/>
+                <con:actions>
+                    <con1:route>
+                        <con2:id>_ActionId-7f000001.223ae70c.0.15e9b796998.N8000</con2:id>
+                        <con1:service ref="FlightScheduleService/Pipeline/ProcessingAndRoutingPipeline" xsi:type="ref:PipelineRef" xmlns:ref="http://www.bea.com/wli/sb/pipeline/config"/>
+                        <con1:operation passThrough="true"/>
+                        <con1:outboundTransform/>
+                        <con1:responseTransform/>
+                    </con1:route>
+                </con:actions>
+            </con:route-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>
