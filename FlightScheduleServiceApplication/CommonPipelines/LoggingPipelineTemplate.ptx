@@ -61,6 +61,7 @@
                             <con1:actions>
                                 <con3:alert>
                                     <con2:id>_ActionId-7f000001.N65ad4e85.0.144b54b61e9.N7ae5</con2:id>
+                                    <con2:locked>true</con2:locked>
                                     <con3:destination ref="CommonPipelines/LoggingAlertDestination"/>
                                     <con3:description>Logging at severity level normal - no problems, just reporting what is going on</con3:description>
                                     <con3:severity>normal</con3:severity>
@@ -73,6 +74,7 @@
                         <con1:default>
                             <con3:alert>
                                 <con2:id>_ActionId-7f000001.N65ad4e85.0.144b54b61e9.N7ae4</con2:id>
+                                <con2:locked>true</con2:locked>
                                 <con3:destination ref="CommonPipelines/LoggingAlertDestination"/>
                                 <con3:description>Logging at severity level minor - processing did not complete as planned; reporting what is going on</con3:description>
                                 <con3:severity>minor</con3:severity>

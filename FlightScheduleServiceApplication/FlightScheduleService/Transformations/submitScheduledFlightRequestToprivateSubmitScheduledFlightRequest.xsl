@@ -12,7 +12,10 @@
                 xmlns:XrefFunctions="http://www.oracle.com/XSL/Transform/java/com.bea.wli.sb.functions.xref.XrefFunctions"
                 exclude-result-prefixes="xsi oracle-xsl-mapper xsl xsd ns0 tns oraxsl DVMFunctions BasicCredentialsUserFunction UUIDUserFunction IsUserInRoleFunction IsUserInGroupFunction XrefFunctions"
                 xmlns:reference="saibot.airport/data/reference" xmlns:common="saibot.airport/data/common"
-                xmlns:flight="saibot.airport/data/flight">
+                xmlns:flight="saibot.airport/data/flight"
+                xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+                xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+                xmlns:RuntimeTypeConversionFunctions="http://www.oracle.com/XSL/Transform/java/com.bea.wli.sb.stages.functions.RuntimeTypeConversionFunctions">
   <oracle-xsl-mapper:schema>
     <!--SPECIFICATION OF MAP SOURCES AND TARGETS, DO NOT MODIFY.-->
     <oracle-xsl-mapper:mapSources>

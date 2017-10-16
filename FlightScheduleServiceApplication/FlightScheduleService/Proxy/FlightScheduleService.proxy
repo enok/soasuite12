@@ -16,7 +16,7 @@
         <ser:ws-policy>
             <ser:binding-mode>no-policies</ser:binding-mode>
         </ser:ws-policy>
-        <ser:invoke ref="FlightScheduleService/Pipeline/FlightScheduleValidationPipeline" xsi:type="con1:PipelineRef" xmlns:con1="http://www.bea.com/wli/sb/pipeline/config"/>
+        <ser:invoke ref="FlightScheduleService/Pipeline/LoggingPipeline" xsi:type="con1:PipelineRef" xmlns:con1="http://www.bea.com/wli/sb/pipeline/config"/>
         <ser:xqConfiguration>
             <ser:snippetVersion>1.0</ser:snippetVersion>
         </ser:xqConfiguration>

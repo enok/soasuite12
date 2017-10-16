@@ -14,10 +14,36 @@
     </con:coreEntry>
     <con:router>
         <con:pipeline type="request" name="request-7f000001.N34a5a1ac.0.15ee35a093b.N8000">
+            <con:stage id="_StageId-7f000001.N79c97f8a.0.15ee37271ae.N7ec6" name="InvokeParallelEnrichmentService">
+                <con:context/>
+                <con:actions>
+                    <con3:wsCallout>
+                        <con2:id>_ActionId-7f000001.N79c97f8a.0.15ee37271ae.N7ec3</con2:id>
+                        <con3:service ref="FlightScheduleService/SplitJoin/ParallelEnrichmentSplitJoin" xsi:type="con4:FlowRef" xmlns:con4="http://www.bea.com/alsb/flow/resources/config"/>
+                        <con3:operation>enrichFlightSchedule</con3:operation>
+                        <con3:request>
+                            <con3:body wrapped="true">parallelEnrichmentRequest</con3:body>
+                        </con3:request>
+                        <con3:response>
+                            <con3:body wrapped="true">parallelEnrichmentResponse</con3:body>
+                        </con3:response>
+                        <con3:requestTransform>
+                            <con3:assign varName="parallelEnrichmentRequest">
+                                <con2:id>_ActionId-7f000001.N79c97f8a.0.15ee37271ae.N7ec0</con2:id>
+                                <con3:expr>
+                                    <con2:xqueryText>$body</con2:xqueryText>
+                                </con3:expr>
+                            </con3:assign>
+                        </con3:requestTransform>
+                        <con3:responseTransform/>
+                    </con3:wsCallout>
+                </con:actions>
+            </con:stage>
             <con:stage id="_StageId-7f000001.N34a5a1ac.0.15ee35a093b.N7ffe" name="DeriveNumberOfFlights">
                 <con:context>
                     <con2:userNsDecl prefix="flig" namespace="saibot.airport/services/flightschedule"/>
                 </con:context>
+                <con:disabled>true</con:disabled>
                 <con:actions>
                     <con3:javaCallout varName="numberOfFlights">
                         <con2:id>_ActionId-7f000001.N79c97f8a.0.15ee37271ae.N7fc3</con2:id>
@@ -36,6 +62,7 @@
                     <con2:userNsDecl prefix="flig" namespace="saibot.airport/services/flightschedule"/>
                     <con2:userNsDecl prefix="slot" namespace="saibot.airport/service/slot"/>
                 </con:context>
+                <con:disabled>true</con:disabled>
                 <con:actions>
                     <con3:wsCallout>
                         <con2:id>_ActionId-7f000001.N79c97f8a.0.15ee37271ae.N7ffa</con2:id>
@@ -80,6 +107,7 @@
                     <con2:userNsDecl prefix="flig" namespace="saibot.airport/services/flightschedule"/>
                     <con2:userNsDecl prefix="fin" namespace="saibot.airport/services/financial"/>
                 </con:context>
+                <con:disabled>true</con:disabled>
                 <con:actions>
                     <con3:wsCallout>
                         <con2:id>_ActionId-7f000001.N79c97f8a.0.15ee37271ae.N7fe1</con2:id>
@@ -131,13 +159,34 @@
                 <con:response>response-7f000001.N34a5a1ac.0.15ee35a093b.N7fff</con:response>
             </con:pipeline-node>
             <con:route-node name="RouteNode1">
-                <con:context/>
+                <con:context>
+                    <con2:userNsDecl prefix="flig" namespace="saibot.airport/services/flightschedule"/>
+                </con:context>
                 <con:actions>
                     <con1:route>
                         <con2:id>_ActionId-7f000001.223ae70c.0.15e9b796998.N7ffd</con2:id>
                         <con1:service ref="PrivateSubmitFlightSchedule/Proxy/PrivateSubmitFlightSchedulePS" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
                         <con1:operation>submitFlightSchedule</con1:operation>
-                        <con1:outboundTransform/>
+                        <con1:outboundTransform>
+                            <con3:replace varName="body" contents-only="true">
+                                <con2:id>_ActionId-7f000001.N79c97f8a.0.15ee37271ae.N7e2a</con2:id>
+                                <con3:expr>
+                                    <con2:xsltTransform>
+                                        <con2:resource ref="FlightScheduleService/Transformations/submitScheduledFlightRequestToprivateSubmitScheduledFlightRequest"/>
+                                        <con2:input>$parallelEnrichmentResponse</con2:input>
+                                        <con2:param name="numberOfFlights">
+                                            <con2:path>$parallelEnrichmentResponse/*[1]/flig:NumberOfFlights/text()</con2:path>
+                                        </con2:param>
+                                        <con2:param name="financialDepartmentApprovalStamp">
+                                            <con2:path>$parallelEnrichmentResponse/*[1]/flig:FinancialDepartmentApprovalStamp/text()</con2:path>
+                                        </con2:param>
+                                        <con2:param name="slotIdentifier">
+                                            <con2:path>$parallelEnrichmentResponse/*[1]/flig:SlotId/text()</con2:path>
+                                        </con2:param>
+                                    </con2:xsltTransform>
+                                </con3:expr>
+                            </con3:replace>
+                        </con1:outboundTransform>
                         <con1:responseTransform/>
                     </con1:route>
                 </con:actions>
